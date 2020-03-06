@@ -1,58 +1,34 @@
 import React from 'react';
+import { saveAs } from 'file-saver';
+import html2canvas from 'html2canvas';
 
-const CopyResult = () => {
-    
-    const handleClick = () => {
-        const captureStreem = await navigator.mediaDevices.getDisplayMedia();
-    }
-    
-    return (
-        <div>
-            <h1>Hello World!</h1>
-            <a id="kakao-link-btn" href="javascript:sendLink()">
-            <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-            </a>
-            <script type='text/javascript'>
-              {/* //<![CDATA[
-                // // 사용할 앱의 JavaScript 키를 설정해 주세요. */}
-                Kakao.init(81b8e32bbe7ca0ef0dfe86bd1e1ac16e);
-                {/* // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다. */}
-                function sendLink() {
-                    Kakao.Link.sendDefault({
-                        objectType: 'location',
-                        address: '경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 8층',
-                        addressTitle: '카카오 판교오피스 카페톡',
-                        content: {
-                            title: '신메뉴 출시♥︎ 체리블라썸라떼',
-                            description: '이번 주는 체리블라썸라떼 1+1',
-                            imageUrl: 'http://mud-kage.kakao.co.kr/dn/bSbH9w/btqgegaEDfW/vD9KKV0hEintg6bZT4v4WK/kakaolink40_original.png',
-                            link: {
-                                mobileWebUrl: 'https://developers.kakao.com',
-                                webUrl: 'https://developers.kakao.com'
-                            }
-                        },
-                        social: {
-                            likeCount: 286,
-                            commentCount: 45,
-                            sharedCount: 845
-                        },
-                        buttons: [
-                            {
-                                title: '웹으로 보기',
-                                link: {
-                                    mobileWebUrl: 'https://developers.kakao.com',
-                                    webUrl: 'https://developers.kakao.com'
-                                }
-                            }
-                        ]
-                    })};
-                }
-              {/* //]]> */}
-            </script>
-        </div>
-    );
+// FileSaver.saveAs(blob, optional DOMString filename, optional Object { autoBom })
+
+const handleClick = () => {
+    // html2canvas(document.querySelector('#capture')).then(canvas => {
+    //     canvas.toBlob(blob => {
+    //         window.saveAs(blob, "result.png");
+    //     });
+        
+    // });
+
+    let body = document.querySelector('body');
+
+    html2canvas(body).then(canvas => {
+        canvas.toBlob(blob => {
+            saveAs(blob, "result.png");
+        });
+    });              
 };
 
 
+const CopyResult = () => {
+    return (
+        <div>
+            <h1>Hello World!</h1>
+            <button id="capture" value="capture" onClick={handleClick}/>
+        </div>
+    );
+};
 
 export default CopyResult;

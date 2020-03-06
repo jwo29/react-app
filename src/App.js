@@ -1,8 +1,9 @@
 import React from 'react';
-import RandomNumber from './components/RandomNumber';
+
 import Movie from './movie/Movie';
 
 import RandomElement from './components/RandomElement';
+import CopyResult from './components/CopyResult';
 
 const moviesTitle = [
   "begin again",
@@ -20,25 +21,6 @@ const movieImages = [
 ];
 
 const App = () => {
-  
-  // RamdomNumber.js import 시 필요한 블록
-  /*constructor(props){
-    super(props);
-
-    this.state = {
-      value: Math.round(Math.random()*100)
-    };
-
-    this.updateValue = this.updateValue.bind(this);
-
-  }
-
-  updateValue(randomValue){
-    this.setState({
-      value: randomValue
-    })
-  }
-  */
 
   return (
     <div className="App">
@@ -47,7 +29,7 @@ const App = () => {
       <Movie title={moviesTitle[2]} poster={movieImage[2]}/>
       <Movie title={moviesTitle[3]} poster={movieImage[3]}/>
       <RandomNumber /> */}
-      <RandomElement />
+      <CopyResult />
     </div>
   );
   
