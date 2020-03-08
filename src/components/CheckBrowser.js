@@ -6,8 +6,8 @@ import * as Bowser from "bowser";
 const handleClick = () => {
     const browser = Bowser.getParser(window.navigator.userAgent);
 
-    console.log(`The current browser name is "${browser.getBrowserName()}"`);
-    console.log(browser.getBrowser());
+    document.write(`The current browser name is "${browser.getBrowserName()}"`);
+    document.write(browser.getBrowser());
 
     const browserName = browser.getBrowserName();
     const browserVersion = browser.getBrowserVersion();
