@@ -7,14 +7,26 @@ const handleClick = () => {
     const browser = Bowser.getParser(window.navigator.userAgent);
 
     document.write(`The current browser name is "${browser.getBrowserName()}"`);
-    document.write(browser.getBrowser());
 
     const browserName = browser.getBrowserName();
     const browserVersion = browser.getBrowserVersion();
 
+    document.write(browserName);
+    document.write(browserVersion);
+
     if(browserName === 'Microsoft Edge'){
         document.write('sorry, Edge is not available');
     } else if(browserName === 'Chrome') {
+        let body = document.querySelector('body');
+
+        html2canvas(body).then(canvas => {
+            
+            canvas.toBlob((blob) => {
+                saveAs(blob, "result.png");
+            });
+            
+        });
+    } else if(browserName == 'NAVER Whale Browser'){
         let body = document.querySelector('body');
 
         html2canvas(body).then(canvas => {
