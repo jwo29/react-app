@@ -8,12 +8,32 @@ const handleClick = () => {
 
     console.log(`The current browser name is "${browser.getBrowserName()}"`);
     console.log(browser.getBrowser());
+
+    const browserName = browser.getBrowserName();
+    const browserVersion = browser.getBrowserVersion();
+
+    if(browserName === 'Microsoft Edge'){
+        document.write('sorry, Edge is not available');
+    } else if(browserName === 'Chrome') {
+        let body = document.querySelector('body');
+
+        html2canvas(body).then(canvas => {
+            
+            canvas.toBlob((blob) => {
+                saveAs(blob, "result.png");
+            });
+            
+        });
+    } else {
+        document.write('pleas use another brower! ex Chrome');
+    }
 }
 
 const CheckBrowser = () => {
     return (
         <div>      
             <h1>hello!</h1>
+            <p className="result"></p>
             <button onClick={handleClick}> 
                 Detect browser 
             </button>
