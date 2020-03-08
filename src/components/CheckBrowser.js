@@ -1,83 +1,22 @@
 import React from 'react';
+import { saveAs } from 'file-saver';
+import * as html2canvas from 'html2canvas';
+import * as Bowser from "bowser";
 
 const handleClick = () => {
-    // Get the user-agent string 
-    let userAgentString =  
-    navigator.userAgent; 
+    const browser = Bowser.getParser(window.navigator.userAgent);
 
-    // Detect Chrome 
-    let chromeAgent =  
-        userAgentString.indexOf("Chrome") > -1; 
-    
-    // Detect Internet Explorer 
-    let IExplorerAgent =  
-        userAgentString.indexOf("MSIE") > -1 ||  
-        userAgentString.indexOf("rv:") > -1; 
-    
-    // Detect Firefox 
-    let firefoxAgent =  
-        userAgentString.indexOf("Firefox") > -1; 
-    
-    // Detect Safari 
-    let safariAgent =  
-        userAgentString.indexOf("Safari") > -1; 
-          
-    // Discard Safari since it also matches Chrome 
-    if ((chromeAgent) && (safariAgent))  
-        safariAgent = false; 
-    
-    // Detect Opera 
-    let operaAgent =  
-        userAgentString.indexOf("OP") > -1; 
-          
-    // Discard Chrome since it also matches Opera      
-    if ((chromeAgent) && (operaAgent))  
-        chromeAgent = false;
-
-    document.querySelector(".output-safari").textContent 
-        = safariAgent; 
-    document.querySelector(".output-chrome").textContent 
-        = chromeAgent; 
-    document.querySelector(".output-ie").textContent 
-        = IExplorerAgent; 
-    document.querySelector(".output-opera").textContent 
-        = operaAgent; 
-    document.querySelector(".output-firefox").textContent 
-        = firefoxAgent; 
+    console.log(`The current browser name is "${browser.getBrowserName()}"`);
+    console.log(browser.getBrowser());
 }
 
 const CheckBrowser = () => {
     return (
         <div>      
-      
-            <p> 
-                Is Safari?  
-                <span className="output-safari"></span> 
-            </p> 
-
-            <p> 
-                Is Chrome?  
-                <span className="output-chrome"></span> 
-            </p> 
-
-            <p> 
-                Is Internet Explorer?  
-                <span className="output-ie"></span> 
-            </p> 
-
-            <p> 
-                Is Firefox?  
-                <span className="output-firefox"></span> 
-            </p> 
-
-            <p> 
-                Is Opera browser?  
-                <span className="output-opera"></span> 
-            </p> 
-
+            <h1>hello!</h1>
             <button onClick={handleClick}> 
                 Detect browser 
-            </button> 
+            </button>
         </div>
     );
 }

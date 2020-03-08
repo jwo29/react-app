@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/html2canvas": "0.0.35",
     "bootstrap": "^4.4.1",
+    "bowser": "^2.9.0",
     "es6-promise": "^4.2.8",
     "file-saver": "^2.0.2",
     "html2canvas": "^1.0.0-rc.5",
