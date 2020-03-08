@@ -1,16 +1,11 @@
 import React from 'react';
-<<<<<<< HEAD
 
 import Movie from './movie/Movie';
 
 import RandomElement from './components/RandomElement';
-import CopyResult from './components/CopyResult';
+// import CopyResult from './components/CopyResult';
+import CheckBrowser from './components/CheckBrowser';
 
-=======
-import RandomNumber from './components/RandomNumber';
-import Movie from './movie/Movie';
-
->>>>>>> 1357576fa0947fd1aedede7e93ddb548a52705f6
 const moviesTitle = [
   "begin again",
   "intern",
@@ -27,7 +22,6 @@ const movieImages = [
 ];
 
 const App = () => {
-<<<<<<< HEAD
 
   return (
     <div className="App">
@@ -36,36 +30,8 @@ const App = () => {
       <Movie title={moviesTitle[2]} poster={movieImage[2]}/>
       <Movie title={moviesTitle[3]} poster={movieImage[3]}/>
       <RandomNumber /> */}
-      <CopyResult />
-=======
-  
-  // RamdomNumber.js import 시 필요한 블록
-  /*constructor(props){
-    super(props);
-
-    this.state = {
-      value: Math.round(Math.random()*100)
-    };
-
-    this.updateValue = this.updateValue.bind(this);
-
-  }
-
-  updateValue(randomValue){
-    this.setState({
-      value: randomValue
-    })
-  }
-  */
-
-  return (
-    <div className="App">
-      <Movie title={moviesTitle[0]} poster={movieImage[0]}/>
-      <Movie title={moviesTitle[1]} poster={movieImage[1]}/>
-      <Movie title={moviesTitle[2]} poster={movieImage[2]}/>
-      <Movie title={moviesTitle[3]} poster={movieImage[3]}/>
-      <RandomNumber />
->>>>>>> 1357576fa0947fd1aedede7e93ddb548a52705f6
+      {/* <CopyResult /> */}
+      <CheckBrowser />
     </div>
   );
   
