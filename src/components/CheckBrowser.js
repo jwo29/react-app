@@ -4,6 +4,7 @@ import * as html2canvas from 'html2canvas';
 import * as Bowser from "bowser";
 
 const handleClick = () => {
+
     const browser = Bowser.getParser(window.navigator.userAgent);
 
     document.write(`The current browser name is "${browser.getBrowserName()}"<br>`);
@@ -49,7 +50,7 @@ const CheckBrowser = () => {
         <div>      
             <h1>hello!</h1>
             <button onClick={handleClick}>Click me!</button>
-            <script> location.href='intent://www.jwo29.github.io/react-app/#Intent;scheme=http;package=com.android.chrome;end' </script>
+            {/* <script> location.href='intent://www.jwo29.github.io/react-app/#Intent;scheme=http;package=com.android.chrome;end' </script> */}
         </div>
     );
 }
