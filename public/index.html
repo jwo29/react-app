@@ -9,13 +9,36 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <script> location.href='intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end' </script>
+    <!-- <script> location.href='intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end' </script> -->
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Movie App</title>
   </head>
   <body>
+    <script>
+      let currentOS = "";
+
+      let mobile = (/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()));
+
+      if(mobile){
+        let userAgent = navigator.userAgent.toLocaleLowerCase();
+
+        if(userAgent.search("android") > -1);{
+          currentOS = "android";
+        } else if((userAgent.search("iphone") > -1) || (userAgent.search("ipod") > -1) || (userAgent.search("ipad") > -1)) {
+          currentOS = "ios";
+        } else {
+          currentOS = "else";
+        }
+      }
+
+      if(currentOS === "android"){
+        window.open("intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end");
+      } else if(currentOS === "ios"){
+        window.open("googlechrome:////jwo29.github.io/react-app");
+      }
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     
