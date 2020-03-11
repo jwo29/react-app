@@ -11,11 +11,49 @@
     />
     <!-- <script> location.href='intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end' </script> -->
 
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Movie App</title>
   </head>
   <body>
+
+    <a id="kakao-link-btn" href="javascript:;"></a>
+    <script type="text/javascript">
+      //<![CDATA[
+      Kakao.init("81b8e32bbe7ca0ef0dfe86bd1e1ac16e");
+      Kakao.Link.createDefaultButton({
+        container: "#kakao-link-btn",
+        objectType: "feed",
+        content: {
+          title: "솔로몬 온순이의 점심 판결",
+          description: "상명대 점심은 온순이가 책임진다.",
+          imageUrl:
+            "https://hellominchan.github.io/solomononsun/static/media/mainCat.9dd9ef3a.png",
+          link: {
+            mobileWebUrl: "https://jwo29.github.io/react-app",
+            webUrl: "https://jwo29.github.io/react-app"
+          }
+        },
+        social: {
+          likeCount: 286,
+          commentCount: 45,
+          sharedCount: 845
+        },
+        buttons: [
+          {
+            title: "웹으로 보기",
+            link: {
+              mobileWebUrl: "https://jwo29.github.io/react-app",
+              webUrl: "https://jwo29.github.io/react-app"
+            }
+          }
+        ]
+      });
+      //]]>
+    </script>
+
     <script>
       let currentOS = "";
 

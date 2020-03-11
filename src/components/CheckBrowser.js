@@ -45,12 +45,17 @@ const handleClick = () => {
     // };
 }
 
+const kakaoButtonClick = () => {
+    document.getElementById("kakao-link-btn").click();
+}
+
 const CheckBrowser = () => {
     return (
         <div>      
             <h1>hello!</h1>
             <button onClick={handleClick}>Click me!</button>
             {/* <script> location.href='intent://www.jwo29.github.io/react-app/#Intent;scheme=http;package=com.android.chrome;end' </script> */}
+            <button onClickCapture={kakaoButtonClick} >kakao</button>
         </div>
     );
 }
