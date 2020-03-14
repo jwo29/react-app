@@ -23,38 +23,91 @@
     <script type="text/javascript">
       //<![CDATA[
       Kakao.init("81b8e32bbe7ca0ef0dfe86bd1e1ac16e");
-      Kakao.Link.createDefaultButton({
-        container: "#kakao-link-btn",
-        objectType: "feed",
-        content: {
-          title: "솔로몬 온순이의 점심 판결",
-          description: "상명대 점심은 온순이가 책임진다.",
-          imageUrl:
-            "https://hellominchan.github.io/solomononsun/static/media/mainCat.9dd9ef3a.png",
-          link: {
-            mobileWebUrl: "https://jwo29.github.io/react-app",
-            webUrl: "https://jwo29.github.io/react-app"
-          }
-        },
-        social: {
-          likeCount: 286,
-          commentCount: 45,
-          sharedCount: 845
-        },
-        buttons: [
-          {
-            title: "웹으로 보기",
+
+      let currentOS = "";
+
+      let mobile = (/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()));
+
+      if(mobile){
+        let userAgent = navigator.userAgent.toLocaleLowerCase();
+      
+        if(userAgent.search("android") > -1){
+          currentOS = "android";
+        } else if((userAgent.search("iphone") > -1) || (userAgent.search("ipod") > -1) || (userAgent.search("ipad") > -1)) {
+          currentOS = "ios";
+        } else {
+          currentOS = "else";
+        }
+      }
+
+      if(currentOS === "android"){
+
+      
+        Kakao.Link.createDefaultButton({
+          container: "#kakao-link-btn",
+          objectType: "feed",
+          content: {
+            title: "솔로몬 온순이의 점심 판결",
+            description: "상명대 점심은 온순이가 책임진다.",
+            imageUrl:
+              "https://hellominchan.github.io/solomononsun/static/media/mainCat.9dd9ef3a.png",
             link: {
               mobileWebUrl: "https://jwo29.github.io/react-app",
               webUrl: "https://jwo29.github.io/react-app"
             }
-          }
-        ]
-      });
+          },
+          social: {
+            likeCount: 286,
+            commentCount: 45,
+            sharedCount: 845
+          },
+          buttons: [
+            {
+              title: "웹으로 보기",
+              link: {
+                mobileWebUrl: "intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end;",
+                webUrl: "https://jwo29.github.io/react-app"
+              }
+            }
+          ]
+        });
+
+
+      } else if (currentOS === "ios"){
+        Kakao.Link.createDefaultButton({
+          container: "#kakao-link-btn",
+          objectType: "feed",
+          content: {
+            title: "솔로몬 온순이의 점심 판결",
+            description: "상명대 점심은 온순이가 책임진다.",
+            imageUrl:
+              "https://hellominchan.github.io/solomononsun/static/media/mainCat.9dd9ef3a.png",
+            link: {
+              mobileWebUrl: "https://jwo29.github.io/react-app",
+              webUrl: "https://jwo29.github.io/react-app"
+            }
+          },
+          social: {
+            likeCount: 286,
+            commentCount: 45,
+            sharedCount: 845
+          },
+          buttons: [
+            {
+              title: "웹으로 보기",
+              link: {
+                mobileWebUrl: "googlechrome:////jwo29.github.io/react-app",
+                webUrl: "https://jwo29.github.io/react-app"
+              }
+            }
+          ]
+        });        
+      }
       //]]>
     </script>
 
-    <script>
+    <!-- <script>
+
       let currentOS = "";
 
       let mobile = (/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()));
@@ -69,17 +122,20 @@
         } else {
           currentOS = "else";
         }
+      } else {
+        window.open("https://jwo29.github.io/react-app", "_self");
       }
       
-      if(currentOS == "android"){
-        window.location.href = "intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end";
+      if(currentOS === "android"){
+        window.open("https://jwo29.github.io/react-app", "_self")
+        // window.location.href = "intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end";
         // location.href = "intent://jwo29.github.io/react-app#scheme=https;package=com.android.chrome;end";
         // window.open("intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end");
-      } else if(currentOS == "ios"){
+      } else if(currentOS === "ios"){
         window.location.href = "ftp://jwo29.github.io/react-app/bridge.html";
         // window.open("googlechrome:////jwo29.github.io/react-app");
       }
-    </script>
+    </script> -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     
