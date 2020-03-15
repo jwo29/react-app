@@ -9,7 +9,6 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <!-- <script> location.href='intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end' </script> -->
 
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
@@ -70,14 +69,12 @@
         } else {
           currentOS = "else";
         }
-      } else {
-        window.open("https://jwo29.github.io/react-app", "_self");
       }
       
       if(currentOS === "android"){
         // window.open("https://jwo29.github.io/react-app", "_self")
-        // window.location.href = "intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end";
-        location.href = "intent://jwo29.github.io/react-app#scheme=https;package=com.android.chrome;end";
+        location.href = "intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end";
+        // location.href = "intent://jwo29.github.io/react-app#scheme=https;package=com.android.chrome;end";
         // window.open("intent://jwo29.github.io/react-app#Intent;scheme=http;package=com.android.chrome;end");
       } else if(currentOS === "ios"){
         location.href = "ftp://jwo29.github.io/react-app/bridge.html";
